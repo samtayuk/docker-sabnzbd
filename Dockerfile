@@ -21,9 +21,10 @@ RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-keys FDA5DFFC \
 
 VOLUME ["/config", "/data/downloads"]
 
-ADD ./start.sh /start.sh
-RUN chmod u+x  /start.sh
+ADD ./entrypoint.sh /entrypoint.sh
+RUN chmod u+x  /entrypoint.sh
 
 EXPOSE 8080
 
-CMD ["/start.sh"]
+ENTRYPOINT ["/entrypoint.sh"]
+CMD ["/usr/bin/sabnzbdplus", "--config-file", "/config" ,"--server", ":8080"]

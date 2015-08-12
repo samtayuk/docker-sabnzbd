@@ -1,4 +1,5 @@
 #! /bin/sh
+set -e
 
 echo checking sabnzbd.ini
 if [ ! -f /config/sabnzbd.ini ]; then
@@ -48,7 +49,4 @@ dir = software" > /config/sabnzbd.ini
     echo "API Key: $API_KEY"
 fi
 
-/usr/bin/sabnzbdplus --daemon --config-file /config --server :8080
-sleep 5
-
-tail -f /config/logs/sabnzbd.*
+exec "$@"
