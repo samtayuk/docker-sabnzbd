@@ -2,7 +2,7 @@ FROM ubuntu:14.04
 MAINTAINER Samuel Taylor "samtaylor.uk@gmail.com"
 
 # Version
-ENV SABNZBD_VERSION 1.0.0-0ubuntu1~jcfp1~trusty
+ENV SABNZBD_VERSION  	1.0.1-0ubuntu1~jcfp1~trusty
 
 # Set API key
 ENV API_KEY ef8b8c11cc3a000c9cfd9efd6813b1f3
