@@ -27,4 +27,4 @@ RUN chmod u+x  /entrypoint.sh
 EXPOSE 8080
 
 ENTRYPOINT ["/entrypoint.sh"]
-CMD ["/usr/bin/sabnzbdplus", "--config-file", "/config" ,"--server", ":8080"]
+CMD ["sabnzbdplus", "--config-file", "/config" ,"--server", ":8080"]
