@@ -15,7 +15,7 @@ RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-keys FDA5DFFC \
   && echo "deb http://archive.ubuntu.com/ubuntu trusty multiverse" | tee -a /etc/apt/sources.list \
   && echo "deb http://ppa.launchpad.net/jcfp/ppa/ubuntu trusty main" | tee -a /etc/apt/sources.list \
   && apt-get update -q \
-  && apt-get install -qy sabnzbdplus=$SABNZBD_VERSION sabnzbdplus-theme-classic sabnzbdplus-theme-mobile sabnzbdplus-theme-plush par2 python-yenc unzip unrar crudini \
+  && apt-get install -qy sabnzbdplus=$SABNZBD_VERSION par2 python-yenc unzip unrar crudini \
   ; apt-get clean \
   ; rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
@@ -27,4 +27,4 @@ RUN chmod u+x  /entrypoint.sh
 EXPOSE 8080
 
 ENTRYPOINT ["/entrypoint.sh"]
-CMD ["sabnzbdplus", "--config-file", "/config" ,"--server", ":8080"]
+CMD ["/usr/bin/sabnzbdplus", "--config-file", "/config" ,"--server", ":8080"]
